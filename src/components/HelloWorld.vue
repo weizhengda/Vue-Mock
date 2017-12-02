@@ -1,10 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{people}}</h1>
     <ul v-for="item in peopleList" :key="item.id">
           <li>{{item.id}}</li>
-          <li>{{item.name}}</li>
-          <li><img :src="item.avatar" alt=""></li>
+          <li>{{item.title}}</li>
+          <li>{{item.author}}</li>
     </ul>
   </div>
 </template>
@@ -14,7 +13,6 @@
     name: "HelloWorld",
     data() {
       return {
-        people: "",
         peopleList: ""
       };
     },
@@ -24,7 +22,7 @@
     methods: {
       getAllPeople: function() {
         this.$http
-          .get("/api/people", {})
+          .get(BASE_URL + "/posts", {})
           .then(
             m => this.peopleList = m.data
           );

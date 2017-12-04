@@ -27,6 +27,17 @@ module.exports = {
     // in the browser.
     showEslintErrorsInOverlay: false,
 
+    // 代理配置
+    proxyTable: {
+      '/api/': {
+          target: 'http://localhost:3000',
+          changeOrigin:true,
+          pathRewrite: {
+            '^/api': ''
+          }
+      },
+  },
+
     /**
      * Source Maps
      */
@@ -54,8 +65,17 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-
+    assetsPublicPath: './',
+  
+    proxyTable: {
+      '/api/': {
+          target: 'localhost:3000',
+          changeOrigin:true,
+          pathRewrite: {
+            '^/api': ''
+          }
+      },
+  },
     /**
      * Source Maps
      */

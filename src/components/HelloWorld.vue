@@ -22,7 +22,7 @@
     methods: {
       getAllPeople: function() {
         this.$http
-          .get(BASE_URL + "/posts", {})
+          .get("/api/posts", {})
           .then(
             m => this.peopleList = m.data
           );
